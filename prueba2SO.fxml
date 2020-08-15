@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLController">
+   <children>
+      <HBox alignment="CENTER" spacing="5.0" style="-fx-border-color: black; -fx-border-width: 0 0 0 0;">
+         <children>
+            <Label fx:id="label" text="Tiempo actual:" />
+            <Label fx:id="tiempoAct" alignment="CENTER" contentDisplay="CENTER" prefHeight="22.0" prefWidth="37.0" style="-fx-border-width: 1; -fx-border-color: black;">
+               <HBox.margin>
+                  <Insets left="2.0" />
+               </HBox.margin></Label>
+            <ComboBox fx:id="cBPaginas" onAction="#botonPaginas" prefHeight="26.0" prefWidth="88.0" />
+            <Button fx:id="botonIniciar" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#botonIniciarSO" prefHeight="26.0" prefWidth="142.0" text="Ejecutar Instruccion" HBox.hgrow="ALWAYS" />
+            <Region minWidth="30.0" prefHeight="18.0" HBox.hgrow="SOMETIMES" />
+            <Label layoutX="573.0" layoutY="22.0" text="Interrupción" />
+            <ComboBox fx:id="cBInterrupcion" />
+            <Button fx:id="botonInterrupcion" mnemonicParsing="false" onAction="#botonInterrupcion" text="Interrumpir" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="10.0" spacing="5.0" style="-fx-border-width: 1 0 0 0; -fx-border-color: black; -fx-background-color: #42bcf5;" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="TOP_LEFT" minWidth="80.0" prefWidth="80.0" text="Procesos">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <VBox style="-fx-border-color: black; -fx-background-color: white;" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: #525252;">
+                     <children>
+                        <Label text="Nuevo" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="98.0" spacing="5.0">
+                     <children>
+                        <Label text="Nombre" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="nombr" alignment="CENTER" contentDisplay="CENTER" prefWidth="28.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="11.0" layoutY="28.0" prefHeight="17.0" prefWidth="98.0" spacing="5.0">
+                     <children>
+                        <Label text="Páginas" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="numPag" onAction="#botonGenerarProceso" prefHeight="26.0" prefWidth="37.0" style="-fx-pref-width: 35;" />
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="11.0" layoutY="59.0" prefHeight="17.0" prefWidth="98.0" spacing="5.0">
+                     <children>
+                        <Label text="Ejec Total" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="ejecTot" onAction="#botonGenerarProceso" prefHeight="26.0" prefWidth="35.0" style="-fx-pref-width: 35;" />
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="11.0" layoutY="90.0" prefHeight="17.0" prefWidth="98.0" spacing="5.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="3.0" />
+                     </padding>
+                     <children>
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botonGenerarProceso" style="-fx-pref-width: 50;" text="+" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="153.0" layoutY="15.0" minWidth="50.0" style="-fx-border-color: black; -fx-background-color: white;" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: #525252;">
+                     <children>
+                        <Label text="Listo" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <ScrollPane fx:id="scrollPaneListos" prefHeight="200.0" style="-fx-padding: 0;" styleClass="&quot;edge-to-edge&quot;">
+                     <content>
+                        <VBox fx:id="cajaListos" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+            <VBox layoutX="258.0" layoutY="15.0" minWidth="50.0" style="-fx-border-color: black; -fx-background-color: white;" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: #525252;">
+                     <children>
+                        <Label text="Ejecutando" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <VBox fx:id="cajaEjecutado" />
+               </children>
+            </VBox>
+            <VBox layoutX="363.0" layoutY="15.0" minWidth="50.0" style="-fx-border-color: black; -fx-background-color: white;" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: #525252;">
+                     <children>
+                        <Label text="Bloqueado" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <ScrollPane fx:id="scrollPaneBloqueados" prefHeight="200.0" style="-fx-padding: 0;">
+                     <content>
+                        <VBox fx:id="cajaBloqueados" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+            <VBox layoutX="363.0" layoutY="15.0" minWidth="50.0" style="-fx-border-color: black; -fx-background-color: white;" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: #525252;">
+                     <children>
+                        <Label text="Finalizado" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <ScrollPane fx:id="scrollPaneTerminados" prefHeight="200.0" style="-fx-padding: 0;">
+                     <content>
+                        <VBox fx:id="cajaTerminados" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="43.0" spacing="5.0" style="-fx-border-width: 1 0 0 0; -fx-border-color: black; -fx-background-color: #ffd736;" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="TOP_LEFT" minWidth="80.0" prefWidth="80.0" text="CPU">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <VBox prefHeight="145.0" prefWidth="270.0" style="-fx-border-color: black; -fx-background-color: white;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: #525252;">
+                     <children>
+                        <Label text="Scheduling" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="238.0" spacing="5.0">
+                     <children>
+                        <Label text="Nombre:" />
+                        <Label fx:id="nombreEjec" />
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hBTiempoLlegada" layoutX="11.0" layoutY="28.0" prefHeight="20.0" prefWidth="238.0" spacing="5.0">
+                     <children>
+                        <Label text="Tiempo llegada:" />
+                        <Label fx:id="tiempoLlegada" />
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox layoutX="11.0" layoutY="53.0" prefHeight="20.0" prefWidth="238.0" spacing="5.0">
+                     <children>
+                        <Label text="CPU asignado:" />
+                        <Label fx:id="cpuAsignado" />
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hBEnvejecimiento" layoutX="11.0" layoutY="78.0" prefHeight="20.0" prefWidth="238.0" spacing="5.0">
+                     <children>
+                        <Label text="Envejecimiento:" />
+                        <Label fx:id="envejecimiento" />
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hBcpuRestante" layoutX="11.0" layoutY="103.0" prefHeight="20.0" prefWidth="238.0" spacing="5.0">
+                     <children>
+                        <Label text="CPU restante:" />
+                        <Label fx:id="cpuRestante" />
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hBQuantum" layoutX="11.0" layoutY="120.0" prefHeight="20.0" prefWidth="238.0" spacing="5.0">
+                     <children>
+                        <Label text="Quantum restante:" />
+                        <Label fx:id="qRestante" />
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <VBox fx:id="vBCpu" layoutX="153.0" layoutY="15.0" maxHeight="10.0" style="-fx-border-color: black; -fx-background-color: white;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: #525252;">
+                     <children>
+                        <Label text="CPU" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <ComboBox fx:id="cBCpu" onAction="#botonPlanificacion" prefWidth="150.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="hBCajaCpu" alignment="CENTER">
+                     <children>
+                        <Region prefHeight="18.0" prefWidth="9.0" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+         </padding>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="205.0" prefHeight="237.0" spacing="5.0" style="-fx-border-color: black; -fx-border-width: 1 0 0 0; -fx-background-color: #6ee34b;" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="TOP_LEFT" minWidth="80.0" prefWidth="80.0" text="Memoria">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <VBox prefHeight="157.0" prefWidth="270.0" style="-fx-border-color: black; -fx-background-color: white;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="269.0" style="-fx-background-color: #525252;">
+                     <children>
+                        <Label text="Página" textFill="WHITE" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="r" textFill="WHITE" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="llegada" textFill="WHITE" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="ult acceso" textFill="WHITE" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="accesos" textFill="WHITE" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label text="NUR" textFill="WHITE" />
+                     </children>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </HBox>
+                  <ScrollPane fx:id="scrollPanePaginas" style="-fx-padding: 0;" styleClass="&quot;edge-to-edge&quot;">
+                     <content>
+                        <VBox fx:id="vBPaginas" prefHeight="200.0" prefWidth="251.0" style="-fx-background-color: white;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <VBox layoutX="153.0" layoutY="15.0" maxHeight="10.0" style="-fx-border-color: black; -fx-background-color: white;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-background-color: #525252;">
+                     <children>
+                        <Label text="Memoria" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <children>
+                        <ComboBox fx:id="cBReemplazo" onAction="#botonReemplazo" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="botonResetNur" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#botonResetNur" text="Reset bits a NUR" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="8.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
